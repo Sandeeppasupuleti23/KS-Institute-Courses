@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KS Institute</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+        }
+
+      
+
+        .header {
+            width: 100%;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            width: 100px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+     
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #222;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #0bb9f3;
+        }
+
+        
+
+        .welcome {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: #f5fbff;
+        }
+
+        .welcome h1 {
+            color: #0bb9f3;
+            font-size: 30px;
+        }
+
+       
+
+        .about {
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 40px 5%;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            color: #08c6fb;
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+       
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #08b9ef;
+            margin: 35px 0 10px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+
+       
+
+        .courses {
+            width: 95%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 25px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+
+            background-color: #0bb9f3;
+            border-radius: 20px;
+        }
+
+        .course-card {
+            background-color: white;
+            border: 2px solid #222;
+            border-radius: 15px;
+            padding: 12px;
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .course-card h3 {
+            font-size: 19px;
+            margin: 15px 0 10px;
+            color: #111;
+        }
+
+        .course-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .course-fees {
+            font-size: 19px;
+            font-weight: bold;
+            color: #087cbb;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .course-card a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #0755d9;
+            color: white;
+            padding: 11px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .course-card a:hover {
+            background-color: #003a9e;
+        }
+
+       
+
+        .contact-section {
+            background-color: #f3faff;
+            padding: 45px 20px;
+            margin-top: 40px;
+        }
+
+        .contact-container {
+            max-width: 650px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            color: #08b9ef;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-container > p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #08b9ef;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-button {
+            width: 100%;
+            padding: 13px;
+            background-color: #087cdb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-button:hover {
+            background-color: #0055a8;
+        }
+
+       
+
+        footer {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        
+
+        @media (max-width: 900px) {
+
+            .courses {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content h2 {
+                font-size: 34px;
+            }
+        }
+
+      
+
+        @media (max-width: 600px) {
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .welcome h1 {
+                font-size: 24px;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content h2 {
+                font-size: 30px;
+            }
+
+            .about-content p {
+                font-size: 16px;
+            }
+
+            .courses {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .contact-container {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+   
+
+    <header class="header">
+
+        <div class="logo">
+            <img src="./images/logo.jpg"
+                 alt="KS Institute Logo">
+        </div>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+   
+
+    <section class="welcome" id="home">
+        <h1>Welcome to KS Institute</h1>
+    </section>
+
+
+   
+
+    <section class="about">
+
+        <div class="about-content">
+
+            <h2>
+                Empowering Minds,<br>
+                Building Future Ready<br>
+                Professionals
+            </h2>
+
+            <p>
+                <strong>Welcome to KS Institute,</strong><br>
+                your destination for industry-focused technology education.
+                We empower students and aspiring professionals with practical
+                knowledge, technical expertise, and career-ready skills to
+                succeed in the evolving IT industry.
+            </p>
+
+        </div>
+
+        <div class="about-image">
+            <img
+                src="https://png.pngtree.com/thumb_back/fh260/background/20250228/pngtree-indian-college-student-girl-working-at-computer-in-public-library-typing-image_17034205.jpg"
+                alt="Student learning technology">
+        </div>
+
+    </section>
+
+
+    
+
+    <h2 class="section-title" id="courses">
+        Our Professional Courses
+    </h2>
+
+    <p class="section-description">
+        Explore our industry-focused technology training programs.
+    </p>
+
+
+    <main class="courses">
+
+       
+
+        <div class="course-card">
+
+            <img src="./images/javaimage1.jpeg"
+                 alt="Java Full Stack Course">
+
+            <h3>Java Full Stack Course</h3>
+
+            <p>
+                Learn Core Java, OOP concepts, Spring Boot,
+                Advanced Java, SQL databases and frontend development.
+                Build practical applications through mini and major projects.
+            </p>
+
+            <div class="course-fees">Fees: ₹35,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+
+       
+
+        <div class="course-card">
+
+            <img src="./images/pythonimage.jpeg"
+                 alt="Python Full Stack Course">
+
+            <h3>Python Full Stack Course</h3>
+
+            <p>
+                Learn Python fundamentals, important libraries,
+                database management, Django and advanced Python.
+                Develop practical web applications and projects.
+            </p>
+
+            <div class="course-fees">Fees: ₹35,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+
+        
+
+        <div class="course-card">
+
+            <img src="./images/aiimage.jpeg"
+                 alt="Artificial Intelligence Course">
+
+            <h3>Artificial Intelligence Course</h3>
+
+            <p>
+                Explore AI fundamentals, Machine Learning,
+                Deep Learning, data analysis and advanced AI concepts.
+                Gain practical experience through real-world projects.
+            </p>
+
+            <div class="course-fees">Fees: ₹50,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+
+       
+
+        <div class="course-card">
+
+            <img src="./images/cybersecurityimage.jpeg"
+                 alt="Cyber Security Course">
+
+            <h3>Cyber Security Course</h3>
+
+            <p>
+                Understand network security, security fundamentals,
+                SQL, ethical hacking and advanced security concepts.
+                Practice security techniques through practical projects.
+            </p>
+
+            <div class="course-fees">Fees: ₹50,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+
+       
+
+        <div class="course-card">
+
+            <img src="./images/cloudanddevopsimage.jpeg"
+                 alt="Cloud and DevOps Course">
+
+            <h3>Cloud & DevOps Course</h3>
+
+            <p>
+                Learn cloud computing fundamentals, AWS,
+                Docker, database concepts and DevOps practices.
+                Develop deployment and automation skills through projects.
+            </p>
+
+            <div class="course-fees">Fees: ₹50,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+
+       
+
+        <div class="course-card">
+
+            <img src="./images/genaiimage.jpeg"
+                 alt="Generative AI Course">
+
+            <h3>Generative AI with Python</h3>
+
+            <p>
+                Learn Generative AI fundamentals, Large Language Models,
+                Python AI tools and advanced Generative AI concepts.
+                Create practical AI-powered applications.
+            </p>
+
+            <div class="course-fees">Fees: ₹50,000</div>
+
+            <a href="#contact">View Course Details</a>
+
+        </div>
+
+    </main>
+
+
+   
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-container">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Interested in our courses? Fill in your details
+                and get in touch with KS Institute.
+            </p>
+
+            <form action="#" method="post">
+
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Gmail / Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="course">Interested Course</label>
+
+                    <select
+                        id="course"
+                        name="course"
+                        style="width:100%; padding:12px; border:1px solid #bbb; border-radius:6px;"
+                        required>
+
+                        <option value="">Select a course</option>
+                        <option>Java Full Stack</option>
+                        <option>Python Full Stack</option>
+                        <option>Artificial Intelligence</option>
+                        <option>Cyber Security</option>
+                        <option>Cloud & DevOps</option>
+                        <option>Generative AI with Python</option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Enter your message here..."
+                        required></textarea>
+                </div>
+
+
+                <button type="submit" class="contact-button">
+                    Submit Details
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <footer>
+
+        <p>© 2026 KS Institute. All Rights Reserved.</p>
+
+        <p>Empowering Minds, Building Future Ready Professionals.</p>
+
+    </footer>
+
+</body>
+</html>
